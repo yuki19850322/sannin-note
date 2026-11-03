@@ -199,7 +199,8 @@ section{padding:120px 0;position:relative;z-index:2}
 .about::before{content:"";position:absolute;width:60vmin;height:60vmin;border-radius:50%;border:1.5px dashed rgba(255,255,255,.12);right:-20vmin;top:-20vmin;animation:spin 70s linear infinite}
 .about .head .en{color:#f3b36f}
 .about .head h2{color:#fff}
-.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.notes{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.fine{margin-top:28px;font-size:12px;color:rgba(255,255,255,.5)}
 .note{border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:28px;background:rgba(255,255,255,.05);transition:transform .3s,background .3s}
 .note:hover{transform:translateY(-5px);background:rgba(255,255,255,.1)}
 .note h4{font-size:16px;font-weight:900;margin-bottom:8px}
@@ -325,7 +326,7 @@ footer small{font-family:var(--en);color:rgba(255,255,255,.6);font-size:12px;let
           <div class="pic wipe"><img class="px" src="img/misaki.jpg" alt=""><div class="num">02</div></div>
           <div class="body">
             <div class="glow"></div>
-            <div class="who"><div class="avatar"><img src="img/misaki_face.jpg" alt="美咲"></div><div><div class="role">USE ／ 仕事で使う</div><h3>美咲 <span class="chip">AIキャラクター</span></h3></div></div>
+            <div class="who"><div class="avatar"><img src="img/misaki_face.jpg" alt="美咲"></div><div><div class="role">USE ／ 仕事で使う</div><h3>美咲</h3></div></div>
             <div class="theme">はじめての人にもやさしい、仕事のAI活用</div>
             <p>新卒2年目。AIを仕事に少しずつ取り入れながら、その記録を書いています。「何から始めればいいの？」という人から、もう少し使いこなしたい人まで向けの内容です。</p>
             <ul class="links">
@@ -339,7 +340,7 @@ footer small{font-family:var(--en);color:rgba(255,255,255,.6);font-size:12px;let
           <div class="pic wipe"><img class="px" src="img/yuzuki.jpg" alt=""><div class="num">03</div></div>
           <div class="body">
             <div class="glow"></div>
-            <div class="who"><div class="avatar"><img src="img/yuzuki_face.jpg" alt="ゆづき"></div><div><div class="role">LIVE ／ 暮らしを整える</div><h3>ゆづき <span class="chip">AIキャラクター</span></h3></div></div>
+            <div class="who"><div class="avatar"><img src="img/yuzuki_face.jpg" alt="ゆづき"></div><div><div class="role">LIVE ／ 暮らしを整える</div><h3>ゆづき</h3></div></div>
             <div class="theme">美容と、一人暮らしのアイテム</div>
             <p>スキンケアやメイク、一人暮らしの女性に役立つアイテムのことを発信しています。ブログ「買う前チェック帳」では、買う前に確かめたいポイントをまとめています。</p>
             <ul class="links">
@@ -361,9 +362,9 @@ footer small{font-family:var(--en);color:rgba(255,255,255,.6);font-size:12px;let
       </div>
       <div class="notes">
         <div class="note rv"><h4>発信先のまとめです</h4><p>3人の発信先をまとめたページです。それぞれの記事や投稿は、リンク先でご覧ください。</p></div>
-        <div class="note rv d1"><h4>AIキャラクターについて</h4><p>美咲とゆづきは、AIで作ったキャラクターです。見た目や設定はAIで作っていて、発信の内容は運営が確認しています。</p></div>
-        <div class="note rv d2"><h4>広告の表示について</h4><p>記事や投稿に商品のリンクがある場合は、それぞれのページで広告（PR）であることを表示しています。</p></div>
+        <div class="note rv d1"><h4>広告の表示について</h4><p>記事や投稿に商品のリンクがある場合は、それぞれのページで広告（PR）であることを表示しています。</p></div>
       </div>
+      <p class="fine rv">※美咲・ゆづきの見た目はAIで作成しています。</p>
     </div>
   </section>
 </main>
@@ -388,12 +389,14 @@ footer small{font-family:var(--en);color:rgba(255,255,255,.6);font-size:12px;let
   });
 
   /* reveal on scroll */
-  var els=document.querySelectorAll('.rv,.wipe,.split');
+  var els=document.querySelectorAll('.rv,.split');
+  function on(e){e.classList.add('on');e.querySelectorAll('.wipe').forEach(function(w){w.classList.add('on')})}
   if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.15});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){on(e.target);io.unobserve(e.target)}})},{threshold:.1});
     els.forEach(function(e){io.observe(e)});
-  }else{els.forEach(function(e){e.classList.add('on')})}
-  setTimeout(function(){els.forEach(function(e){if(e.getBoundingClientRect().top<innerHeight)e.classList.add('on')})},3500);
+  }else{els.forEach(on)}
+  setTimeout(function(){els.forEach(function(e){if(e.getBoundingClientRect().top<innerHeight)on(e)})},3500);
+  setTimeout(function(){document.querySelectorAll('.wipe').forEach(function(w){w.classList.add('on')})},12000);
 
   /* scroll: progress bar, parallax images, marquee skew by velocity */
   var bar=document.getElementById('bar'),row=document.getElementById('row'),px=document.querySelectorAll('.px'),lastY=scrollY,vel=0;
