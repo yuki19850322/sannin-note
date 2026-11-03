@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI時代の働き方</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="AIと一緒に、選ぶ・使う・整える。立場のちがう3人が、AI時代の働き方と暮らし方を発信しています。">
+<meta property="og:title" content="AI時代の働き方">
+<meta property="og:description" content="AIと一緒に、選ぶ・使う・整える。立場のちがう3人が、AI時代の働き方と暮らし方を発信しています。">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#f6f2ea">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* layout: warm paper stage matching the illustrations; navy ink + orange accent.
+   motion: intro curtain, mouse-parallax hero layers, ken-burns, image marquee with scroll-skew,
+   clip-wipe image reveals, split-char headings, scroll parallax, tilt cards, magnetic links, cursor glow */
+:root{
+  --bg:#f6f2ea; --paper:#fffdf9; --ink:#1b2a44; --sub:#5f6878; --line:#e4dccd;
+  --navy:#1f3a5f; --accent:#e08a36; --yuki:#2f5f9e; --misaki:#2a9d8a; --yuzuki:#d46a8a;
+  --en:"Syne",system-ui,sans-serif; --ja:"Zen Kaku Gothic New",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--ja);line-height:1.9;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden;cursor:none}
+a{color:inherit;cursor:none}
+@media (hover:none){body,a{cursor:auto}}
+img{max-width:100%;display:block}
+::selection{background:var(--accent);color:#fff}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+
+/* intro curtain */
+.intro{position:fixed;inset:0;z-index:200;background:var(--navy);display:grid;place-items:center;color:#fff;animation:curtain 1.1s cubic-bezier(.76,0,.24,1) 1.1s forwards;pointer-events:none}
+.intro .t{font-weight:900;font-size:clamp(28px,5vw,56px);overflow:hidden;display:flex;gap:.04em}
+.intro .t span{display:inline-block;transform:translateY(110%);animation:up .7s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i)*.05s + .1s)}
+.intro .t .o{color:var(--accent);font-family:var(--en)}
+.intro .ln{position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left;animation:line 1s ease .2s forwards}
+@keyframes line{to{transform:scaleX(1)}}
+@keyframes curtain{to{transform:translateY(-100%);border-radius:0 0 50% 50%/0 0 12% 12%}}
+
+/* cursor + spotlight + progress */
+.cur{position:fixed;left:0;top:0;width:10px;height:10px;border-radius:50%;background:var(--accent);pointer-events:none;z-index:100;transform:translate(-50%,-50%)}
+.cur2{position:fixed;left:0;top:0;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--navy);pointer-events:none;z-index:100;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s,border-color .25s;opacity:.7}
+.cur2.big{width:76px;height:76px;background:rgba(224,138,54,.18);border-color:var(--accent)}
+@media (hover:none){.cur,.cur2{display:none}}
+.spot{position:fixed;inset:0;pointer-events:none;z-index:1;background:radial-gradient(520px circle at var(--mx,50%) var(--my,30%),rgba(224,138,54,.12),transparent 60%)}
+.bar{position:fixed;left:0;top:0;height:3px;width:100%;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,var(--yuki),var(--misaki),var(--yuzuki),var(--accent));z-index:30}
+
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:20;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:rgba(246,242,234,.72);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px);transform:translateY(-100%);animation:hdr .8s cubic-bezier(.2,.8,.2,1) 2s forwards}
+@keyframes hdr{to{transform:none}}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:66px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:900;letter-spacing:.04em;font-size:17px}
+.logo i{width:11px;height:11px;border-radius:50%;background:var(--accent);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(224,138,54,.5)}50%{box-shadow:0 0 0 8px rgba(224,138,54,0)}}
+nav{display:flex;gap:30px}
+nav a{font-family:var(--en);font-size:13px;letter-spacing:.14em;color:var(--sub);text-decoration:none;position:relative;transition:color .2s}
+nav a::after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:right;transition:transform .3s}
+nav a:hover{color:var(--ink)}nav a:hover::after{transform:scaleX(1);transform-origin:left}
+@media (max-width:640px){nav{display:none}}
+
+/* hero */
+.hero{position:relative;padding:150px 0 70px;overflow:hidden;min-height:92svh;display:flex;align-items:center}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;width:100%}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.hero{padding-top:110px;min-height:0}}
+.mesh{position:absolute;inset:-20%;z-index:-2;background:
+  radial-gradient(40% 50% at 20% 20%,rgba(47,95,158,.22),transparent 70%),
+  radial-gradient(35% 45% at 80% 30%,rgba(224,138,54,.24),transparent 70%),
+  radial-gradient(35% 40% at 60% 85%,rgba(212,106,138,.18),transparent 70%),
+  radial-gradient(30% 40% at 85% 80%,rgba(42,157,138,.16),transparent 70%);
+  animation:mesh 20s ease-in-out infinite alternate;filter:blur(30px)}
+@keyframes mesh{to{transform:rotate(8deg) scale(1.15) translate(3%,-3%)}}
+.ring{position:absolute;border-radius:50%;border:1.5px solid rgba(31,58,95,.14);z-index:-1;pointer-events:none}
+.ring.r1{width:70vmin;height:70vmin;right:-12vmin;top:-18vmin;animation:spin 60s linear infinite;border-style:dashed}
+.ring.r2{width:40vmin;height:40vmin;right:8vmin;bottom:-10vmin;animation:spin 40s linear infinite reverse}
+.ring.r3{width:18vmin;height:18vmin;left:-4vmin;bottom:18vmin;border-color:rgba(224,138,54,.4);animation:spin 25s linear infinite;border-style:dotted;border-width:3px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.kicker{font-family:var(--en);font-size:13px;letter-spacing:.34em;color:var(--accent);display:flex;align-items:center;gap:14px}
+.kicker::before{content:"";width:36px;height:2px;background:var(--accent)}
+.hero h1{font-weight:900;font-size:clamp(50px,7.6vw,104px);line-height:1.08;letter-spacing:-.01em;margin:22px 0 26px;text-wrap:balance}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .ch{display:inline-block;transform:translateY(110%);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i)*.06s + 2s)}
+@keyframes up{to{transform:none}}
+.hero h1 .ai{font-family:var(--en);font-weight:800;background:linear-gradient(100deg,var(--yuki),var(--misaki) 45%,var(--yuzuki));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:up .9s cubic-bezier(.2,.8,.2,1) forwards,hue 6s linear infinite;animation-delay:2s,0s}
+@keyframes hue{to{background-position:200% 0}}
+.lead{font-size:clamp(18px,2.1vw,24px);font-weight:700;margin-bottom:14px}
+.lead b{color:var(--accent);font-weight:900;display:inline-block;animation:bob 3s ease-in-out infinite}
+.lead b:nth-child(2){animation-delay:.4s}.lead b:nth-child(3){animation-delay:.8s}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.hero p.sub{max-width:520px;color:var(--sub);font-size:15px}
+.fade{opacity:0;transform:translateY(16px);animation:fadein 1s ease forwards}
+@keyframes fadein{to{opacity:1;transform:none}}
+.stage{position:relative;aspect-ratio:1280/670;max-width:100%}
+.layer{position:absolute;will-change:transform;transition:transform .12s ease-out}
+.hero-art{inset:0;border-radius:28px;overflow:hidden;box-shadow:0 30px 70px rgba(27,42,68,.18);opacity:0;animation:fadein 1.2s ease 2.4s forwards}
+.hero-art img{width:100%;height:100%;object-fit:cover;animation:kb 22s ease-in-out infinite alternate;transform-origin:60% 40%}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.12)}}
+.hero-art .cap{position:absolute;left:18px;bottom:18px;background:rgba(255,253,249,.9);backdrop-filter:blur(8px);border-radius:12px;padding:8px 14px;font-size:13px;font-weight:700;display:flex;gap:10px;align-items:center}
+.hero-art .cap i{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.hero-art .badge{position:absolute;right:18px;top:18px;background:var(--navy);color:#fff;font-family:var(--en);font-size:11px;letter-spacing:.2em;padding:6px 12px;border-radius:99px}
+.mini{width:34%;border-radius:16px;overflow:hidden;box-shadow:0 18px 40px rgba(27,42,68,.22);border:4px solid var(--paper);opacity:0;animation:pop .8s cubic-bezier(.2,.8,.2,1) forwards}
+.mini img{width:100%;aspect-ratio:900/471;object-fit:cover}
+.mini.m1{left:-10%;top:-10%;animation-delay:2.9s;--d:2}
+.mini.m2{right:-8%;bottom:-14%;animation-delay:3.1s;--d:3}
+@keyframes pop{from{opacity:0;transform:translateY(30px) scale(.9)}to{opacity:1;transform:none}}
+.tagf{position:absolute;background:var(--paper);border:1px solid var(--line);border-radius:99px;padding:6px 14px;font-size:12px;font-weight:700;box-shadow:0 10px 24px rgba(27,42,68,.12);opacity:0;animation:pop .8s cubic-bezier(.2,.8,.2,1) forwards;display:flex;gap:8px;align-items:center;white-space:nowrap}
+.tagf i{width:8px;height:8px;border-radius:50%;background:var(--c)}
+.tagf.t1{right:-4%;top:28%;animation-delay:3.4s;--d:3.6;--c:var(--yuki)}
+.tagf.t2{left:8%;bottom:-13%;animation-delay:3.6s;--d:2.6;--c:var(--misaki)}
+.tagf.t3{left:36%;top:-12%;animation-delay:3.8s;--d:3;--c:var(--yuzuki)}
+@media (max-width:900px){.mini.m1{left:-4%;top:-8%}.mini.m2{right:-4%;bottom:-10%}.tagf{display:none}}
+.scroll{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-family:var(--en);font-size:11px;letter-spacing:.3em;color:var(--sub);display:flex;flex-direction:column;align-items:center;gap:10px}
+.scroll::after{content:"";width:1px;height:44px;background:linear-gradient(var(--accent),transparent);animation:drop 2s ease-in-out infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media (max-width:900px){.scroll{display:none}}
+
+/* image marquee */
+.strip{overflow:hidden;padding:60px 0 10px;position:relative;z-index:2}
+.strip .row{display:flex;gap:18px;width:max-content;animation:slide 48s linear infinite;transition:transform .3s ease-out}
+.strip:hover .row{animation-play-state:paused}
+.strip .row img{width:300px;aspect-ratio:900/471;object-fit:cover;border-radius:18px;box-shadow:0 10px 30px rgba(27,42,68,.1);transition:transform .4s}
+.strip .row img:nth-child(odd){transform:translateY(10px)}
+.strip .row img:hover{transform:translateY(-8px) rotate(-1.5deg) scale(1.04)}
+@keyframes slide{to{transform:translateX(-50%)}}
+.strip-words{border-block:1px solid var(--line);overflow:hidden;padding:16px 0;margin-top:30px;background:var(--paper)}
+.strip-words div{display:flex;gap:48px;width:max-content;animation:slide 30s linear infinite;font-family:var(--en);font-weight:800;font-size:clamp(22px,3.4vw,36px);white-space:nowrap}
+.strip-words span{color:transparent;-webkit-text-stroke:1px rgba(27,42,68,.45);transition:color .3s}
+.strip-words:hover span{color:var(--ink);-webkit-text-stroke:0}
+.strip-words em{font-style:normal;color:var(--accent)}
+
+/* sections */
+section{padding:120px 0;position:relative;z-index:2}
+.head{margin-bottom:56px}
+.head .en{font-family:var(--en);font-size:13px;letter-spacing:.34em;color:var(--accent)}
+.head h2{font-weight:900;font-size:clamp(30px,4.4vw,50px);line-height:1.3;margin-top:10px;text-wrap:balance}
+.head p{color:var(--sub);margin-top:14px;max-width:620px}
+.js .split .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em}
+.js .split .w i{display:inline-block;font-style:normal;transform:translateY(110%);transition:transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i)*.035s)}
+.js .split.on .w i{transform:none}
+
+/* concept */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pillar{border-radius:24px;background:var(--paper);border:1px solid var(--line);overflow:hidden;transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s;position:relative}
+.pillar::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--c);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.pillar:hover{transform:translateY(-10px);box-shadow:0 30px 60px rgba(27,42,68,.14)}
+.pillar:hover::after{transform:scaleX(1)}
+.pillar .pic{aspect-ratio:900/471;overflow:hidden}
+.pillar .pic img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.pillar:hover .pic img{transform:scale(1.08)}
+.pillar .body{padding:26px 28px 30px}
+.pillar .no{font-family:var(--en);font-size:12px;color:var(--c);letter-spacing:.24em}
+.pillar h3{font-size:40px;font-weight:900;margin:4px 0 0;color:var(--c);display:flex;align-items:baseline;gap:14px}
+.pillar h3 small{font-family:var(--en);font-size:12px;letter-spacing:.3em;color:var(--sub);font-weight:700}
+.pillar p{color:var(--sub);font-size:15px;margin-top:12px}
+@media (max-width:860px){.pillars{grid-template-columns:1fr}}
+
+/* clip-wipe image reveal */
+.js .wipe{clip-path:inset(0 100% 0 0);transition:clip-path 1.1s cubic-bezier(.76,0,.24,1)}
+.js .wipe.on{clip-path:inset(0 0 0 0)}
+.js .wipe img{transform:scale(1.25);transition:transform 1.4s cubic-bezier(.2,.8,.2,1)}
+.js .wipe.on img{transform:scale(1)}
+
+/* members */
+.members{display:grid;gap:28px;perspective:1600px}
+.member{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);background:var(--paper);border:1px solid var(--line);border-radius:30px;overflow:hidden;position:relative;transform-style:preserve-3d;transition:transform .15s ease-out,box-shadow .4s,border-color .3s}
+.member:hover{box-shadow:0 34px 70px rgba(27,42,68,.16);border-color:color-mix(in srgb,var(--c) 50%,var(--line))}
+.member:nth-child(even){grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
+.member:nth-child(even) .pic{order:2}
+.member .pic{position:relative;min-height:300px;overflow:hidden;background:var(--bg)}
+.member .pic img{position:absolute;inset:-12% 0;width:100%;height:124%;object-fit:cover;will-change:transform}
+.member .pic::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,color-mix(in srgb,var(--c) 28%,transparent),transparent 55%);mix-blend-mode:multiply}
+.member .num{position:absolute;left:22px;top:14px;font-family:var(--en);font-size:84px;font-weight:800;line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.9);z-index:1;transform:translateZ(30px)}
+.member .body{padding:44px 44px 40px;display:flex;flex-direction:column;gap:14px;min-width:0;position:relative}
+.member .glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(380px circle at var(--gx,50%) var(--gy,50%),color-mix(in srgb,var(--c) 14%,transparent),transparent 60%);opacity:0;transition:opacity .4s}
+.member:hover .glow{opacity:1}
+.who{display:flex;align-items:center;gap:16px}
+.avatar{width:84px;height:84px;border-radius:50%;display:grid;place-items:center;background:var(--c);color:#fff;font-weight:900;font-size:32px;overflow:hidden;box-shadow:0 0 0 4px var(--paper),0 0 0 6px var(--c),0 12px 30px rgba(27,42,68,.18);flex:none;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.member:hover .avatar{transform:rotate(-8deg) scale(1.08)}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.role{font-family:var(--en);font-size:12px;letter-spacing:.28em;color:var(--c)}
+.member h3{font-size:clamp(30px,3.6vw,42px);font-weight:900;line-height:1.2;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.chip{font-size:12px;font-weight:700;border:1.5px solid var(--c);color:var(--c);border-radius:99px;padding:1px 12px;letter-spacing:.04em}
+.member .theme{font-weight:700;font-size:18px}
+.member p{color:var(--sub);font-size:15px}
+.links{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;position:relative}
+.links a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;padding:11px 16px;border-radius:99px;background:var(--bg);border:1px solid var(--line);font-family:var(--en);font-weight:700;font-size:14px;transition:background .25s,border-color .25s,color .25s;will-change:transform}
+.links a small{font-family:var(--ja);color:var(--sub);font-size:12px;font-weight:400}
+.links a::after{content:"↗";color:var(--c);transition:transform .25s}
+.links a:hover{background:var(--c);border-color:var(--c);color:#fff}
+.links a:hover small,.links a:hover::after{color:#fff}
+.links a:hover::after{transform:translate(2px,-2px)}
+@media (max-width:860px){.member,.member:nth-child(even){grid-template-columns:1fr}.member:nth-child(even) .pic{order:0}.member .pic{min-height:0;aspect-ratio:900/471}.member .body{padding:28px 24px 30px}.member .num{font-size:60px}}
+
+/* about (navy band) */
+.about{background:var(--navy);color:#fff;overflow:hidden}
+.about::before{content:"";position:absolute;width:60vmin;height:60vmin;border-radius:50%;border:1.5px dashed rgba(255,255,255,.12);right:-20vmin;top:-20vmin;animation:spin 70s linear infinite}
+.about .head .en{color:#f3b36f}
+.about .head h2{color:#fff}
+.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.note{border:1px solid rgba(255,255,255,.14);border-radius:20px;padding:28px;background:rgba(255,255,255,.05);transition:transform .3s,background .3s}
+.note:hover{transform:translateY(-5px);background:rgba(255,255,255,.1)}
+.note h4{font-size:16px;font-weight:900;margin-bottom:8px}
+.note p{color:rgba(255,255,255,.72);font-size:14px}
+@media (max-width:860px){.notes{grid-template-columns:1fr}}
+
+footer{padding:60px 0;position:relative;z-index:2;background:var(--navy);color:#fff;border-top:1px solid rgba(255,255,255,.12)}
+footer .wrap{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+footer .big{font-weight:900;font-size:clamp(30px,6vw,72px);line-height:1.05}
+footer .big span{font-family:var(--en);color:var(--accent)}
+footer small{font-family:var(--en);color:rgba(255,255,255,.6);font-size:12px;letter-spacing:.1em}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.js .rv.on{opacity:1;transform:none}
+.js .rv.d1{transition-delay:.12s}.js .rv.d2{transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.intro{display:none}header{transform:none}.js .rv,.fade,.hero h1 .ch,.hero-art,.mini,.tagf{opacity:1;transform:none}.js .wipe{clip-path:none}.js .wipe img,.js .split .w i{transform:none}body,a{cursor:auto}.cur,.cur2{display:none}}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+<div class="intro" aria-hidden="true"><div class="t"><span class="o" style="--i:0">AI</span><span style="--i:1">時</span><span style="--i:2">代</span><span style="--i:3">の</span><span style="--i:4">働</span><span style="--i:5">き</span><span style="--i:6">方</span></div><div class="ln"></div></div>
+<div class="bar" id="bar"></div>
+<div class="spot" id="spot"></div>
+<div class="cur" id="cur"></div><div class="cur2" id="cur2"></div>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top"><i></i>AI時代の働き方</a>
+    <nav><a href="#concept">CONCEPT</a><a href="#members">MEMBERS</a><a href="#about">ABOUT</a></nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero" id="hero">
+    <div class="mesh"></div>
+    <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+    <div class="wrap">
+      <div>
+        <div class="kicker fade" style="animation-delay:2.1s">WORK STYLE IN THE AGE OF AI</div>
+        <h1><span class="ln"><span class="ai ch" style="--i:0">AI</span><span class="ch" style="--i:1">時</span><span class="ch" style="--i:2">代</span><span class="ch" style="--i:3">の</span></span><span class="ln"><span class="ch" style="--i:4">働</span><span class="ch" style="--i:5">き</span><span class="ch" style="--i:6">方</span></span></h1>
+        <div class="lead fade" style="animation-delay:2.7s">AIと一緒に、<b>選ぶ</b>・<b>使う</b>・<b>整える</b>。</div>
+        <p class="sub fade" style="animation-delay:2.9s">仕事を選ぶ人、仕事でAIを使う人、暮らしを整える人。立場のちがう3人が、これからの働き方と暮らし方を、それぞれの場所で発信しています。</p>
+      </div>
+      <div class="stage" id="stage">
+        <div class="layer hero-art" data-d="1">
+          <img src="img/hero.jpg" alt="分かれ道に立つ人のイラスト">
+          <span class="badge">CHOOSE YOUR WAY</span>
+          <span class="cap"><i></i>働き方は、ひとつじゃない。</span>
+        </div>
+        <div class="layer mini m1" data-d="2.2"><img src="img/g8.jpg" alt=""></div>
+        <div class="layer mini m2" data-d="3"><img src="img/g3.jpg" alt=""></div>
+        <div class="layer tagf t1" data-d="3.6"><i></i>選ぶ</div>
+        <div class="layer tagf t2" data-d="2.6"><i></i>使う</div>
+        <div class="layer tagf t3" data-d="3.2"><i></i>整える</div>
+      </div>
+    </div>
+    <div class="scroll fade" style="animation-delay:3.6s">SCROLL</div>
+  </div>
+
+  <div class="strip" aria-hidden="true">
+    <div class="row" id="row">
+      <img src="img/g1.jpg" alt=""><img src="img/g2.jpg" alt=""><img src="img/g3.jpg" alt=""><img src="img/g4.jpg" alt=""><img src="img/g5.jpg" alt=""><img src="img/g6.jpg" alt=""><img src="img/g7.jpg" alt=""><img src="img/g8.jpg" alt="">
+      <img src="img/g1.jpg" alt=""><img src="img/g2.jpg" alt=""><img src="img/g3.jpg" alt=""><img src="img/g4.jpg" alt=""><img src="img/g5.jpg" alt=""><img src="img/g6.jpg" alt=""><img src="img/g7.jpg" alt=""><img src="img/g8.jpg" alt="">
+    </div>
+    <div class="strip-words">
+      <div>
+        <span>CHOOSE</span><em>／</em><span>USE</span><em>／</em><span>LIVE</span><em>／</em><span>WORK STYLE IN THE AGE OF AI</span><em>／</em>
+        <span>CHOOSE</span><em>／</em><span>USE</span><em>／</em><span>LIVE</span><em>／</em><span>WORK STYLE IN THE AGE OF AI</span><em>／</em>
+      </div>
+    </div>
+  </div>
+
+  <section id="concept">
+    <div class="wrap">
+      <div class="head">
+        <div class="en rv">CONCEPT</div>
+        <h2 class="split">働き方は、ひとつじゃない。</h2>
+        <p class="rv d1">AIが当たり前になった今、仕事の選び方も、仕事の進め方も、暮らし方も変わってきています。3人がそれぞれの立場から、すぐに使えるやり方を届けます。</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar rv" style="--c:var(--yuki)">
+          <div class="pic wipe"><img src="img/p1.jpg" alt="天秤で比べる人のイラスト"></div>
+          <div class="body"><div class="no">01</div><h3>選ぶ<small>CHOOSE</small></h3>
+          <p>転職や職場の悩みを、AIで整理して判断する。迷ったときに手元に置ける道具を。</p></div>
+        </div>
+        <div class="pillar rv d1" style="--c:var(--misaki)">
+          <div class="pic wipe"><img src="img/p2.jpg" alt="AIと一緒に書類を整えるイラスト"></div>
+          <div class="body"><div class="no">02</div><h3>使う<small>USE</small></h3>
+          <p>毎日の仕事に、AIを少しずつ取り入れる。はじめての人でも真似できる形で。</p></div>
+        </div>
+        <div class="pillar rv d2" style="--c:var(--yuzuki)">
+          <div class="pic wipe"><img src="img/p3.jpg" alt="カレンダーに予定を書く人のイラスト"></div>
+          <div class="body"><div class="no">03</div><h3>整える<small>LIVE</small></h3>
+          <p>美容と一人暮らしのアイテムを、買う前にチェック。働く毎日を、暮らしから整える。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="members" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div class="en rv">MEMBERS</div>
+        <h2 class="split">3人のメンバー</h2>
+      </div>
+      <div class="members">
+
+        <article class="member rv tilt" style="--c:var(--yuki)">
+          <div class="pic wipe"><img class="px" src="img/yuki.jpg" alt=""><div class="num">01</div></div>
+          <div class="body">
+            <div class="glow"></div>
+            <div class="who"><div class="avatar"><img src="yuki.png" alt="Yukiのアイコン"></div><div><div class="role">CHOOSE ／ 仕事を選ぶ</div><h3>Yuki</h3></div></div>
+            <div class="theme">AIを使った仕事術と、転職の悩み</div>
+            <p>求人票の見方や、働きながら転職を進める仕組みなど、迷ったときに手元に置ける記事を書いています。ガジェット好きで、「買う前チェック帳」ではガジェットの紹介も担当しています。</p>
+            <ul class="links">
+              <li><a class="mag" href="https://note.com/ai_shigoto_erabi" target="_blank" rel="noopener">note <small>AI時代の仕事選び</small></a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="member rv tilt" style="--c:var(--misaki)">
+          <div class="pic wipe"><img class="px" src="img/misaki.jpg" alt=""><div class="num">02</div></div>
+          <div class="body">
+            <div class="glow"></div>
+            <div class="who"><div class="avatar"><img src="img/misaki_face.jpg" alt="美咲"></div><div><div class="role">USE ／ 仕事で使う</div><h3>美咲 <span class="chip">AIキャラクター</span></h3></div></div>
+            <div class="theme">はじめての人にもやさしい、仕事のAI活用</div>
+            <p>新卒2年目。AIを仕事に少しずつ取り入れながら、その記録を書いています。「何から始めればいいの？」という人から、もう少し使いこなしたい人まで向けの内容です。</p>
+            <ul class="links">
+              <li><a class="mag" href="https://x.com/misaki_ai_sales" target="_blank" rel="noopener">X <small>@misaki_ai_sales</small></a></li>
+              <li><a class="mag" href="https://note.com/misaki_naka" target="_blank" rel="noopener">note <small>美咲の中の人</small></a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="member rv tilt" style="--c:var(--yuzuki)">
+          <div class="pic wipe"><img class="px" src="img/yuzuki.jpg" alt=""><div class="num">03</div></div>
+          <div class="body">
+            <div class="glow"></div>
+            <div class="who"><div class="avatar"><img src="img/yuzuki_face.jpg" alt="ゆづき"></div><div><div class="role">LIVE ／ 暮らしを整える</div><h3>ゆづき <span class="chip">AIキャラクター</span></h3></div></div>
+            <div class="theme">美容と、一人暮らしのアイテム</div>
+            <p>スキンケアやメイク、一人暮らしの女性に役立つアイテムのことを発信しています。ブログ「買う前チェック帳」では、買う前に確かめたいポイントをまとめています。</p>
+            <ul class="links">
+              <li><a class="mag" href="https://x.com/yuzuki_yurubi" target="_blank" rel="noopener">X <small>@yuzuki_yurubi</small></a></li>
+              <li><a class="mag" href="https://kaumae-check.hatenablog.jp/" target="_blank" rel="noopener">Blog <small>買う前チェック帳</small></a></li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="wrap">
+      <div class="head">
+        <div class="en rv">ABOUT</div>
+        <h2 class="split">このサイトについて</h2>
+      </div>
+      <div class="notes">
+        <div class="note rv"><h4>発信先のまとめです</h4><p>3人の発信先をまとめたページです。それぞれの記事や投稿は、リンク先でご覧ください。</p></div>
+        <div class="note rv d1"><h4>AIキャラクターについて</h4><p>美咲とゆづきは、AIで作ったキャラクターです。見た目や設定はAIで作っていて、発信の内容は運営が確認しています。</p></div>
+        <div class="note rv d2"><h4>広告の表示について</h4><p>記事や投稿に商品のリンクがある場合は、それぞれのページで広告（PR）であることを表示しています。</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="big"><span>AI</span>時代の働き方</div>
+    <small>© 2026 WORK STYLE IN THE AGE OF AI</small>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+  /* split headings into characters */
+  document.querySelectorAll('.split').forEach(function(h){
+    var t=h.textContent,i=0;h.textContent='';
+    t.split(/(?<=[、。 ])/).forEach(function(chunk){var w=document.createElement('span');w.className='w';
+      chunk.split('').forEach(function(c){var s=document.createElement('i');s.textContent=c;s.style.setProperty('--i',i++);w.appendChild(s)});h.appendChild(w)});
+  });
+
+  /* reveal on scroll */
+  var els=document.querySelectorAll('.rv,.wipe,.split');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.15});
+    els.forEach(function(e){io.observe(e)});
+  }else{els.forEach(function(e){e.classList.add('on')})}
+  setTimeout(function(){els.forEach(function(e){if(e.getBoundingClientRect().top<innerHeight)e.classList.add('on')})},3500);
+
+  /* scroll: progress bar, parallax images, marquee skew by velocity */
+  var bar=document.getElementById('bar'),row=document.getElementById('row'),px=document.querySelectorAll('.px'),lastY=scrollY,vel=0;
+  function onScroll(){
+    var h=document.documentElement,max=h.scrollHeight-innerHeight;
+    bar.style.transform='scaleX('+(max?scrollY/max:0)+')';
+    if(reduce)return;
+    vel=scrollY-lastY;lastY=scrollY;
+    row.style.transform='skewX('+Math.max(-12,Math.min(12,-vel*.4))+'deg)';
+    px.forEach(function(im){var r=im.parentNode.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;
+      var p=(r.top+r.height/2-innerHeight/2)/innerHeight;im.style.transform='translateY('+(p*-40)+'px)'});
+  }
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+  setInterval(function(){if(Math.abs(vel)>0){vel*=.6;if(Math.abs(vel)<.5)vel=0;row.style.transform='skewX('+(-vel*.4)+'deg)'}},60);
+
+  /* mouse: cursor, spotlight, hero layers, tilt, magnetic links */
+  if(fine&&!reduce){
+    var cur=document.getElementById('cur'),cur2=document.getElementById('cur2'),spot=document.getElementById('spot');
+    var mx=innerWidth/2,my=innerHeight/2,cx=mx,cy=my;
+    var hero=document.getElementById('hero'),layers=document.querySelectorAll('#stage .layer');
+    addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cur.style.transform='translate('+mx+'px,'+my+'px) translate(-50%,-50%)';
+      spot.style.setProperty('--mx',mx+'px');spot.style.setProperty('--my',my+'px');
+      var r=hero.getBoundingClientRect();if(r.bottom>0){var dx=(mx/innerWidth-.5),dy=((my-r.top)/r.height-.5);
+        layers.forEach(function(l){var d=+l.dataset.d||1;l.style.transform='translate('+(dx*-14*d)+'px,'+(dy*-10*d)+'px)'})}});
+    (function loop(){cx+=(mx-cx)*.15;cy+=(my-cy)*.15;cur2.style.transform='translate('+cx+'px,'+cy+'px) translate(-50%,-50%)';requestAnimationFrame(loop)})();
+    document.querySelectorAll('a,.pillar,.note,.strip img,.mini').forEach(function(a){a.addEventListener('mouseenter',function(){cur2.classList.add('big')});a.addEventListener('mouseleave',function(){cur2.classList.remove('big')})});
+    document.querySelectorAll('.tilt').forEach(function(c){
+      c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+        c.style.transform='perspective(1400px) rotateY('+((x-.5)*6)+'deg) rotateX('+((.5-y)*6)+'deg) translateY(-4px)';
+        c.style.setProperty('--gx',(x*100)+'%');c.style.setProperty('--gy',(y*100)+'%')});
+      c.addEventListener('mouseleave',function(){c.style.transform=''});
+    });
+    document.querySelectorAll('.mag').forEach(function(a){
+      a.addEventListener('mousemove',function(e){var r=a.getBoundingClientRect();a.style.transform='translate('+((e.clientX-r.left-r.width/2)*.3)+'px,'+((e.clientY-r.top-r.height/2)*.4)+'px)'});
+      a.addEventListener('mouseleave',function(){a.style.transform='';a.style.transition='transform .5s cubic-bezier(.2,.8,.2,1),background .25s,border-color .25s,color .25s'});
+    });
+  }
+})();
+</script>
+</body>
+</html>
