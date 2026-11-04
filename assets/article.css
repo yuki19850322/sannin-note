@@ -1,0 +1,17 @@
+/* article pages: small parts for reading (conclusion box, prompt box, sort table) */
+.answer{max-width:720px;background:var(--paper);border:1px solid var(--line);border-left:6px solid var(--c,var(--accent));border-radius:18px;padding:22px 24px;box-shadow:0 14px 34px rgba(27,42,68,.08)}
+.answer .en{font-family:var(--en);font-size:12px;letter-spacing:.18em;color:var(--c,var(--accent));margin-bottom:6px}
+.answer p{font-size:18px;font-weight:700;line-height:1.8}
+.answer p+p{margin-top:10px;font-size:15px;font-weight:400;color:var(--sub)}
+.prompt{max-width:720px;margin:18px 0 8px;background:#141f33;color:#e9eef7;border-radius:16px;padding:20px 22px;font-size:14px;line-height:1.9;white-space:pre-wrap;word-break:break-word;font-family:var(--ja);position:relative;box-shadow:0 20px 50px rgba(20,31,51,.25)}
+.prompt::before{content:"PROMPT";display:block;font-family:var(--en);font-size:11px;letter-spacing:.2em;color:#f3b36f;margin-bottom:8px}
+.sort{max-width:720px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:8px 0 16px}
+.sort div{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:0 10px 26px rgba(27,42,68,.06)}
+.sort b{display:block;font-weight:900;margin-bottom:4px}
+.sort b i{font-style:normal;font-family:var(--en);color:var(--c,var(--accent));margin-right:6px}
+.sort span{display:block;color:var(--sub);font-size:14px;line-height:1.8}
+.sort em{display:inline-block;margin-top:8px;font-style:normal;font-size:12px;font-weight:700;padding:2px 10px;border-radius:99px;background:color-mix(in srgb,var(--c,var(--accent)) 12%,var(--bg));color:var(--c,var(--accent))}
+@media (max-width:640px){.sort{grid-template-columns:1fr}}
+section.dark .steps li{color:var(--ink)}
+section.dark .prose p,section.dark .prose li{color:rgba(255,255,255,.85)}
+section.dark .prose strong{color:#fff}
