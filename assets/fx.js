@@ -39,7 +39,7 @@
     }
     var sel='a,button,.card,.pillar,.svc,.strip img,.mini,.hero-art,.member .pic,.steps li,.note,.defs div';
     document.querySelectorAll(sel).forEach(function(el){
-      el.addEventListener('mouseenter',function(){lab.textContent=label(el);ring.classList.add('hov');dot.classList.add('hide');if(el.matches('.strip img,.mini,.hero-art,.member .pic,.pic'))ring.classList.add('img');if(el.matches('nav a,.logo,.crumb a'))ring.classList.add('sm')});
+      el.addEventListener('mouseenter',function(){if(el.matches('nav a,.logo,.crumb a,footer a')){ring.classList.add('sm');return}lab.textContent=label(el);ring.classList.add('hov');dot.classList.add('hide');if(el.matches('.strip img,.mini,.hero-art,.member .pic,.pic'))ring.classList.add('img')});
       el.addEventListener('mouseleave',function(){ring.classList.remove('hov','img','sm');dot.classList.remove('hide')});
     });
     document.querySelectorAll('h1,h2,h3,p,li span,dd').forEach(function(el){

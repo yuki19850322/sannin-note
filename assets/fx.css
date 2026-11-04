@@ -7,7 +7,7 @@ body,a,button{cursor:none}
 .fx-ring span{font-family:var(--en);font-size:11px;letter-spacing:.2em;font-weight:800;color:#fff;opacity:0;transform:scale(.6);transition:opacity .25s,transform .35s cubic-bezier(.2,.8,.2,1);white-space:nowrap}
 .fx-ring.hov{width:92px;height:92px;background:rgba(31,58,95,.92);border-color:transparent;mix-blend-mode:normal;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .fx-ring.hov span{opacity:1;transform:none}
-.fx-ring.sm{width:56px;height:56px;background:rgba(224,138,54,.9)}
+.fx-ring.sm{width:22px;height:22px;border-color:var(--accent);mix-blend-mode:normal;background:transparent}
 .fx-ring.img{width:110px;height:110px;background:rgba(224,138,54,.92)}
 .fx-ring.txt{opacity:0}
 .fx-ring.txt span,.fx-dot.hide{opacity:0}
