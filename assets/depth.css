@@ -1,5 +1,5 @@
 /* color-scheme: follow the viewer */
-:root{color-scheme:light dark}
+:root{color-scheme:light}
 /* ===== depth: dark hero + dark compare bands + stronger shadows (Yuki 11-04「白くてのっぺり」対策) ===== */
 body{background:radial-gradient(60% 40% at 80% 0%,#efe6d6 0%,transparent 60%),radial-gradient(50% 40% at 0% 100%,#efe3d6 0%,transparent 60%),var(--bg)}
 /* header: transparent over the dark hero, cream after scroll */
@@ -78,33 +78,3 @@ section.dark .svc,#members .member{color:var(--ink)}
 #members .member p{color:var(--sub)}
 section.dark .svc p{color:var(--sub)}
 
-/* ===== dark mode (案2の配色) ===== */
-@media (prefers-color-scheme: dark){
-:root{--bg:#141f33;--paper:#1c2b45;--ink:#f3eee6;--sub:#aeb6c4;--line:#2b3d5c;--navy:#0f1829;--yuki:#7fa6dd;--misaki:#5cc5b2;--yuzuki:#ee8fac;--accent:#f3a254}
-body{background:radial-gradient(60% 40% at 80% 0%,#1f3a5f 0%,transparent 60%),radial-gradient(50% 40% at 0% 100%,#2a2438 0%,transparent 60%),#141f33;color:#f3eee6}
-header,body.scrolled header{background:rgba(20,31,51,.82);border-bottom-color:#2b3d5c}
-body.scrolled header .logo,body.scrolled nav a{color:#fff}body.scrolled nav a{color:rgba(255,255,255,.72)}
-.ph,.hero{background:linear-gradient(160deg,#0f1829,#17263f 55%,#1f3a5f)}
-.card,.pillar,.svc,.steps li,.defs div,.note,.member{background:#1c2b45;border-color:#2b3d5c;color:#f3eee6}
-.card p,.pillar p,.svc p,.steps li span,.defs dd,.note,.member p,.head p,.prose,.ph .lead{color:#aeb6c4}
-.pillar h3 small,.card .no{color:#aeb6c4}
-.fit{background:#162339;color:#f3eee6}.fit dd{color:#f3eee6}
-.strip-words{background:#0f1829;border-color:#2b3d5c}
-section.dark,#members{background:linear-gradient(180deg,#0f1829,#17263f)}
-section.dark .svc,#members .member{color:#f3eee6}section.dark .svc p{color:#aeb6c4}
-.about{background:#0f1829!important}
-.band{background:linear-gradient(135deg,#c9702a,#8f4a16)}
-footer{background:#0b1220}
-.links a{background:#162339;border-color:#2b3d5c;color:#fff}.links a small{color:#aeb6c4}
-.btn.off{background:#2b3d5c;color:#aeb6c4}
-.hero-art .cap,.tagf,.ph .hero-art .cap,.hero .hero-art .cap,.hero .tagf,.ph .tagf{background:#1c2b45;color:#f3eee6;border-color:#2b3d5c}
-.strip .row img{filter:brightness(.92)}
-.mini{border-color:#1c2b45}
-.fx-grain{opacity:.12;mix-blend-mode:screen}
-.fx-ring.hov{background:rgba(243,238,230,.95)}.fx-ring.hov span{color:#141f33}
-.fx-ring.img{background:rgba(224,138,54,.95)}.fx-ring.img span{color:#fff}
-.head .idx{-webkit-text-stroke:1px rgba(255,255,255,.18)}
-.spot{background:radial-gradient(520px circle at var(--mx,50%) var(--my,30%),rgba(224,138,54,.14),transparent 60%)}
-.pr{background:rgba(255,255,255,.1)}
-.kicker{color:#f3b36f}
-}
