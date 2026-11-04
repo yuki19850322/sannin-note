@@ -155,6 +155,10 @@ section{padding:120px 0;position:relative;z-index:2}
 .pillar h3{font-size:40px;font-weight:900;margin:4px 0 0;color:var(--c);display:flex;align-items:baseline;gap:14px}
 .pillar h3 small{font-family:var(--en);font-size:12px;letter-spacing:.3em;color:var(--sub);font-weight:700}
 .pillar p{color:var(--sub);font-size:15px;margin-top:12px}
+a.pillar{text-decoration:none;color:inherit;display:block}
+.pillar .more{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-weight:900;font-size:14px;color:var(--c)}
+.pillar .more::after{content:"→";transition:transform .25s}
+.pillar:hover .more::after{transform:translateX(5px)}
 @media (max-width:860px){.pillars{grid-template-columns:1fr}}
 
 /* clip-wipe image reveal */
@@ -180,7 +184,7 @@ section{padding:120px 0;position:relative;z-index:2}
 .avatar{width:84px;height:84px;border-radius:50%;display:grid;place-items:center;background:var(--c);color:#fff;font-weight:900;font-size:32px;overflow:hidden;box-shadow:0 0 0 4px var(--paper),0 0 0 6px var(--c),0 12px 30px rgba(27,42,68,.18);flex:none;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 .member:hover .avatar{transform:rotate(-8deg) scale(1.08)}
 .avatar img{width:100%;height:100%;object-fit:cover}
-.role{font-family:var(--en);font-size:12px;letter-spacing:.28em;color:var(--c)}
+.role{font-family:var(--en);font-size:12px;letter-spacing:.28em;color:var(--c);display:block}
 .member h3{font-size:clamp(30px,3.6vw,42px);font-weight:900;line-height:1.2;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .chip{font-size:12px;font-weight:700;border:1.5px solid var(--c);color:var(--c);border-radius:99px;padding:1px 12px;letter-spacing:.04em}
 .member .theme{font-weight:700;font-size:18px}
@@ -231,7 +235,7 @@ footer small{font-family:var(--en);color:rgba(255,255,255,.6);font-size:12px;let
 <header>
   <div class="wrap">
     <a class="logo" href="#top"><i></i>AI時代の働き方</a>
-    <nav><a href="#concept">CONCEPT</a><a href="#members">MEMBERS</a><a href="#about">ABOUT</a></nav>
+    <nav><a href="erabu/">CHOOSE</a><a href="tsukau/">USE</a><a href="totonoeru/">LIVE</a><a href="about/">ABOUT</a></nav>
   </div>
 </header>
 
@@ -283,21 +287,21 @@ footer small{font-family:var(--en);color:rgba(255,255,255,.6);font-size:12px;let
         <p class="rv d1">AIが当たり前になった今、仕事の選び方も、仕事の進め方も、暮らし方も変わってきています。3人がそれぞれの立場から、すぐに使えるやり方を届けます。</p>
       </div>
       <div class="pillars">
-        <div class="pillar rv" style="--c:var(--yuki)">
+        <a class="pillar rv" href="erabu/" style="--c:var(--yuki)">
           <div class="pic wipe"><img src="img/p1.jpg" alt="天秤で比べる人のイラスト"></div>
           <div class="body"><div class="no">01</div><h3>選ぶ<small>CHOOSE</small></h3>
-          <p>転職や職場の悩みを、AIで整理して判断する。迷ったときに手元に置ける道具を。</p></div>
-        </div>
-        <div class="pillar rv d1" style="--c:var(--misaki)">
+          <p>転職や職場の悩みを、AIで整理して判断する。迷ったときに手元に置ける道具を。</p><span class="more">入口へ</span></div>
+        </a>
+        <a class="pillar rv d1" href="tsukau/" style="--c:var(--misaki)">
           <div class="pic wipe"><img src="img/p2.jpg" alt="AIと一緒に書類を整えるイラスト"></div>
           <div class="body"><div class="no">02</div><h3>使う<small>USE</small></h3>
-          <p>毎日の仕事に、AIを少しずつ取り入れる。はじめての人でも真似できる形で。</p></div>
-        </div>
-        <div class="pillar rv d2" style="--c:var(--yuzuki)">
+          <p>毎日の仕事に、AIを少しずつ取り入れる。はじめての人でも真似できる形で。</p><span class="more">入口へ</span></div>
+        </a>
+        <a class="pillar rv d2" href="totonoeru/" style="--c:var(--yuzuki)">
           <div class="pic wipe"><img src="img/p3.jpg" alt="カレンダーに予定を書く人のイラスト"></div>
           <div class="body"><div class="no">03</div><h3>整える<small>LIVE</small></h3>
-          <p>美容と一人暮らしのアイテムを、買う前にチェック。働く毎日を、暮らしから整える。</p></div>
-        </div>
+          <p>美容と一人暮らしのアイテムを、買う前にチェック。働く毎日を、暮らしから整える。</p><span class="more">入口へ</span></div>
+        </a>
       </div>
     </div>
   </section>
@@ -314,7 +318,7 @@ footer small{font-family:var(--en);color:rgba(255,255,255,.6);font-size:12px;let
           <div class="pic wipe"><img class="px" src="img/yuki.jpg" alt=""><div class="num">01</div></div>
           <div class="body">
             <div class="glow"></div>
-            <div class="who"><div class="avatar"><img src="yuki.png" alt="Yukiのアイコン"></div><div><div class="role">CHOOSE ／ 仕事を選ぶ</div><h3>Yuki</h3></div></div>
+            <div class="who"><div class="avatar"><img src="yuki.png" alt="Yukiのアイコン"></div><div><a class="role" href="erabu/" style="text-decoration:none">CHOOSE ／ 仕事を選ぶ →</a><h3>Yuki</h3></div></div>
             <div class="theme">AIを使った仕事術と、転職の悩み</div>
             <p>求人票の見方や、働きながら転職を進める仕組みなど、迷ったときに手元に置ける記事を書いています。ガジェット好きで、「買う前チェック帳」ではガジェットの紹介も担当しています。</p>
             <ul class="links">
@@ -327,7 +331,7 @@ footer small{font-family:var(--en);color:rgba(255,255,255,.6);font-size:12px;let
           <div class="pic wipe"><img class="px" src="img/misaki.jpg" alt=""><div class="num">02</div></div>
           <div class="body">
             <div class="glow"></div>
-            <div class="who"><div class="avatar"><img src="img/misaki_face.jpg" alt="美咲"></div><div><div class="role">USE ／ 仕事で使う</div><h3>美咲</h3></div></div>
+            <div class="who"><div class="avatar"><img src="img/misaki_face.jpg" alt="美咲"></div><div><a class="role" href="tsukau/" style="text-decoration:none">USE ／ 仕事で使う →</a><h3>美咲</h3></div></div>
             <div class="theme">はじめての人にもやさしい、仕事のAI活用</div>
             <p>新卒2年目。AIを仕事に少しずつ取り入れながら、その記録を書いています。「何から始めればいいの？」という人から、もう少し使いこなしたい人まで向けの内容です。</p>
             <ul class="links">
@@ -341,7 +345,7 @@ footer small{font-family:var(--en);color:rgba(255,255,255,.6);font-size:12px;let
           <div class="pic wipe"><img class="px" src="img/yuzuki.jpg" alt=""><div class="num">03</div></div>
           <div class="body">
             <div class="glow"></div>
-            <div class="who"><div class="avatar"><img src="img/yuzuki_face.jpg" alt="ゆづき"></div><div><div class="role">LIVE ／ 暮らしを整える</div><h3>ゆづき</h3></div></div>
+            <div class="who"><div class="avatar"><img src="img/yuzuki_face.jpg" alt="ゆづき"></div><div><a class="role" href="totonoeru/" style="text-decoration:none">LIVE ／ 暮らしを整える →</a><h3>ゆづき</h3></div></div>
             <div class="theme">美容と、一人暮らしのアイテム</div>
             <p>スキンケアやメイク、一人暮らしの女性に役立つアイテムのことを発信しています。ブログ「買う前チェック帳」では、買う前に確かめたいポイントをまとめています。</p>
             <ul class="links">
@@ -363,7 +367,7 @@ footer small{font-family:var(--en);color:rgba(255,255,255,.6);font-size:12px;let
       </div>
       <div class="notes">
         <div class="note rv"><h4>発信先のまとめです</h4><p>3人の発信先をまとめたページです。それぞれの記事や投稿は、リンク先でご覧ください。</p></div>
-        <div class="note rv d1"><h4>広告の表示について</h4><p>記事や投稿に商品のリンクがある場合は、それぞれのページで広告（PR）であることを表示しています。</p></div>
+        <div class="note rv d1"><h4>広告の表示について</h4><p>記事や投稿に商品やサービスのリンクがある場合は、そのページで広告（PR）であることを表示しています。くわしくは<a href="about/" style="color:#f3b36f">運営情報・広告の表示について</a>をご覧ください。</p></div>
       </div>
       <p class="fine rv">※美咲・ゆづきの見た目はAIで作成しています。</p>
     </div>
@@ -373,7 +377,7 @@ footer small{font-family:var(--en);color:rgba(255,255,255,.6);font-size:12px;let
 <footer>
   <div class="wrap">
     <div class="big"><span>AI</span>時代の働き方</div>
-    <small>運営：AI時代の働き方 編集部<br>© 2026 WORK STYLE IN THE AGE OF AI</small>
+    <small><a href="about/" style="color:rgba(255,255,255,.8);text-decoration:none">運営情報・広告の表示について</a><br>運営：AI時代の働き方 編集部<br>© 2026 WORK STYLE IN THE AGE OF AI</small>
   </div>
 </footer>
 
