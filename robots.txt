@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yuki19850322.github.io/sannin-note/sitemap.xml
