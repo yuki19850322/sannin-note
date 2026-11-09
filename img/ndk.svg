@@ -1,0 +1,23 @@
+<svg overflow="hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" role="img" aria-label="NDK AI WIZARD">
+  <defs>
+    <mask id="ndk-gap">
+      <rect width="700" height="420" fill="#fff"/>
+      <rect x="0" y="168" width="700" height="66" fill="#000"/>
+    </mask>
+  </defs>
+  <g fill="#1b2a44">
+    <rect x="0" y="0" width="700" height="58"/>
+    <rect x="0" y="352" width="700" height="58"/>
+    <g mask="url(#ndk-gap)">
+      <rect x="0" y="74" width="44" height="262"/>
+      <polygon points="52,74 112,74 166,336 106,336"/>
+      <rect x="174" y="74" width="44" height="262"/>
+      <rect x="268" y="74" width="44" height="262"/>
+      <path d="M322 74 H372 A131 131 0 0 1 372 336 H322 V292 H372 A87 87 0 0 0 372 118 H322 Z"/>
+      <rect x="530" y="74" width="44" height="262"/>
+      <polygon points="584,198 656,74 704,74 606,236"/>
+      <polygon points="608,176 704,336 654,336 584,222"/>
+    </g>
+    <text x="350" y="222" text-anchor="middle" font-family="'Zen Kaku Gothic New','Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="62" letter-spacing="3">AI WIZARD</text>
+  </g>
+</svg>
