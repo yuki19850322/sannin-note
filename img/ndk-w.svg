@@ -1,13 +1,17 @@
-<svg overflow="hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" role="img" aria-label="NDK AI WIZARD">
+<svg overflow="hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 410" role="img" aria-label="NDK AI WIZARD">
   <defs>
     <mask id="ndk-gap-w">
       <rect width="700" height="420" fill="#fff"/>
       <rect x="0" y="168" width="700" height="66" fill="#000"/>
     </mask>
+    <mask id="ndk-name-w">
+      <rect width="700" height="420" fill="#fff"/>
+      <text x="684" y="398" text-anchor="end" font-family="'Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="40" letter-spacing="1" fill="#000">YUKIHIRO.H</text>
+    </mask>
   </defs>
   <g fill="#ffffff">
     <rect x="0" y="0" width="700" height="58"/>
-    <rect x="0" y="352" width="700" height="58"/>
+    <rect x="0" y="352" width="700" height="58" mask="url(#ndk-name-w)"/>
     <g mask="url(#ndk-gap-w)">
       <rect x="0" y="74" width="44" height="262"/>
       <polygon points="52,74 112,74 166,336 106,336"/>
