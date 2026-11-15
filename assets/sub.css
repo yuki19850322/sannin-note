@@ -6,6 +6,7 @@ body{background:var(--bg);color:var(--ink);font-family:var(--ja);line-height:1.9
 a{color:inherit}
 img{max-width:100%;display:block}
 ::selection{background:var(--accent);color:#fff}
+img::selection{background:transparent}.card,.pic,.pillar{-webkit-user-select:none;user-select:none}
 .wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
 .bar{position:fixed;left:0;top:0;height:3px;width:100%;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,var(--yuki),var(--misaki),var(--yuzuki),var(--accent));z-index:30}
 .spot{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(520px circle at var(--mx,50%) var(--my,30%),rgba(224,138,54,.10),transparent 60%)}
