@@ -57,11 +57,11 @@ section.dark + section{padding-top:80px}
 .about{background:#16243b!important;border-top:1px solid rgba(255,255,255,.08)}
 .about .head .en{color:#f3b36f!important}
 /* band (sub pages) -> warm accent */
-.band{background:linear-gradient(135deg,#e08a36,#c9702a 70%,#b8601f);box-shadow:0 30px 70px rgba(224,138,54,.25)}
-.band .en{color:rgba(255,255,255,.75)}
-.band p{color:rgba(255,255,255,.88)}
-.band .links a{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3)}
-.band .links a:hover{background:var(--navy);border-color:var(--navy)}
+.band{background:linear-gradient(135deg,#1f3a5f,#16243b);box-shadow:0 30px 70px rgba(27,42,68,.35);border-top:4px solid var(--accent)}
+.band .en{color:#f3b36f}
+.band p{color:rgba(255,255,255,.8)}
+.band .links a{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.22)}
+.band .links a:hover{background:var(--accent);border-color:var(--accent)}
 /* cards & bits: more depth */
 .card{box-shadow:0 14px 34px rgba(27,42,68,.08)}
 .card:hover{box-shadow:0 34px 70px rgba(27,42,68,.18)}
