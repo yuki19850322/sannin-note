@@ -71,3 +71,8 @@ nav.n5 a[data-s="about"]{font-family:var(--en);font-weight:500;letter-spacing:.1
 /* 暗い段の中のカードは、文字を濃い色に戻す（白い文字が白いカードに重なっていた） */
 section.dark .card{color:var(--ink)}
 section.dark .card p{color:var(--sub)}
+/* 4枚の段は1列に4枚並べる（1枚だけ次の行に落ちないように） */
+.grid.four{grid-template-columns:repeat(4,1fr)}
+.grid.four .card h3{font-size:17px}
+@media (max-width:1080px){.grid.four{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:860px){.grid.four{grid-template-columns:1fr}}
