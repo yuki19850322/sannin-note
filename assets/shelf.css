@@ -76,3 +76,24 @@ section.dark .card p{color:var(--sub)}
 .grid.four .card h3{font-size:17px}
 @media (max-width:1080px){.grid.four{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:860px){.grid.four{grid-template-columns:1fr}}
+
+/* 近道：見出しのすぐ下に行き先のボタンを出し、最初の画面で次の行き先が選べるようにする */
+.ph{min-height:0;padding:118px 0 44px}
+.chips.jump{margin-top:22px}
+.chips.jump a[href^="#"]::after{content:" ↓";opacity:.55}
+.chips.jump a{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.34);color:#fff}
+.chips.jump a:hover{background:rgba(255,255,255,.22);border-color:#fff}
+.chips.jump a.main{background:#fff;border-color:#fff;color:var(--ink)}
+section[id]{scroll-margin-top:76px}
+.ph~.strip{padding-top:18px}
+@media (max-width:860px){
+  .ph{padding:92px 0 22px}
+  .ph .lead{font-size:15px}
+  .ph .stage{margin-top:26px}
+  .ph~.strip .row,.hero~.strip .row{display:none}
+  .ph~.strip,.hero~.strip{padding:0}
+  .ph~.strip-words,.hero~.strip .strip-words{margin-top:0}
+  .chips.jump a{font-size:13px;padding:8px 13px}
+  .hero{padding-bottom:36px}
+  #concept{padding-top:44px}
+}
