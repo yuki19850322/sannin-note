@@ -235,6 +235,7 @@ footer small{font-family:var(--en);color:rgba(255,255,255,.6);font-size:12px;let
 </style>
 <link rel="stylesheet" href="assets/fx.css">
 <link rel="stylesheet" href="assets/depth.css">
+<link rel="stylesheet" href="assets/shelf.css">
 <script src="assets/fx.js" defer></script>
 </head>
 <body data-veil="none">
@@ -247,7 +248,7 @@ footer small{font-family:var(--en);color:rgba(255,255,255,.6);font-size:12px;let
 <header>
   <div class="wrap">
     <a class="logo" href="#top"><i></i>AI時代の働き方</a>
-    <nav><a href="erabu/">CHOOSE</a><a href="tsukau/">USE</a><a href="totonoeru/">LIVE</a><a href="about/">ABOUT</a></nav>
+    <nav class="n5"><a href="tenshoku/">転職</a><a href="shokuba/">職場の悩み</a><a href="ai/">AI活用</a><a href="kurashi/">買う前に</a><a href="about/" data-s="about">ABOUT</a></nav>
   </div>
 </header>
 
@@ -285,8 +286,8 @@ footer small{font-family:var(--en);color:rgba(255,255,255,.6);font-size:12px;let
     </div>
     <div class="strip-words">
       <div>
-        <span>CHOOSE</span><em>／</em><span>USE</span><em>／</em><span>LIVE</span><em>／</em><span>WORK STYLE IN THE AGE OF AI</span><em>／</em>
-        <span>CHOOSE</span><em>／</em><span>USE</span><em>／</em><span>LIVE</span><em>／</em><span>WORK STYLE IN THE AGE OF AI</span><em>／</em>
+        <span>JOB CHANGE</span><em>／</em><span>WORKPLACE</span><em>／</em><span>AI AT WORK</span><em>／</em><span>BEFORE YOU BUY</span><em>／</em>
+        <span>JOB CHANGE</span><em>／</em><span>WORKPLACE</span><em>／</em><span>AI AT WORK</span><em>／</em><span>BEFORE YOU BUY</span><em>／</em>
       </div>
     </div>
   </div>
@@ -296,25 +297,47 @@ footer small{font-family:var(--en);color:rgba(255,255,255,.6);font-size:12px;let
       <div class="head">
         <div class="en rv">CONCEPT</div>
         <h2 class="split">働き方は、ひとつじゃない。</h2>
-        <p class="rv d1">AIが当たり前になった今、仕事の選び方も、仕事の進め方も、暮らし方も変わってきています。3人がそれぞれの立場から、すぐに使えるやり方を届けます。</p>
+        <p class="rv d1">AIが当たり前になった今、仕事の選び方も、仕事の進め方も、暮らし方も変わってきています。3人が書いた記事と比較を、目的ごとに4つの棚に分けて置いています。</p>
       </div>
-      <div class="pillars">
-        <a class="pillar rv" href="erabu/" style="--c:var(--yuki)">
+      <div class="pillars p4">
+        <a class="pillar rv" href="tenshoku/" style="--c:var(--yuki)">
           <div class="pic wipe"><img src="img/p1.jpg" alt="天秤で比べる人のイラスト"></div>
-          <div class="body"><div class="no">01</div><h3>選ぶ<small>CHOOSE</small></h3>
-          <p>転職や職場の悩みを、AIで整理して判断する。迷ったときに手元に置ける道具を。</p><span class="more">入口へ</span></div>
+          <div class="body"><div class="no">01</div><h3>転職する<small>JOB CHANGE</small></h3>
+          <p>求人票の読み方、書類、面接、内定まで。転職エージェントと転職サイトの比較も。</p><span class="more">棚を開く</span></div>
         </a>
-        <a class="pillar rv d1" href="tsukau/" style="--c:var(--misaki)">
+        <a class="pillar rv d1" href="shokuba/" style="--c:var(--navy)">
+          <div class="pic wipe"><img src="img/hero.jpg" alt="分かれ道に立つ人のイラスト"></div>
+          <div class="body"><div class="no">02</div><h3>職場の悩み・退職<small>WORKPLACE</small></h3>
+          <p>パワハラの記録、相談先、退職の伝え方とお金の手続き。辞めるか迷ったときに。</p><span class="more">棚を開く</span></div>
+        </a>
+        <a class="pillar rv d2" href="ai/" style="--c:var(--misaki)">
           <div class="pic wipe"><img src="img/p2.jpg" alt="AIと一緒に書類を整えるイラスト"></div>
-          <div class="body"><div class="no">02</div><h3>使う<small>USE</small></h3>
-          <p>毎日の仕事に、AIを少しずつ取り入れる。はじめての人でも真似できる形で。</p><span class="more">入口へ</span></div>
+          <div class="body"><div class="no">03</div><h3>AIを仕事で使う<small>AI AT WORK</small></h3>
+          <p>最初の1週間、AIツールの比較、話題のAIを仕事で試した記録。</p><span class="more">棚を開く</span></div>
         </a>
-        <a class="pillar rv d2" href="totonoeru/" style="--c:var(--yuzuki)">
+        <a class="pillar rv d3" href="kurashi/" style="--c:var(--yuzuki)">
           <div class="pic wipe"><img src="img/p3.jpg" alt="カレンダーに予定を書く人のイラスト"></div>
-          <div class="body"><div class="no">03</div><h3>整える<small>LIVE</small></h3>
-          <p>美容と一人暮らしのアイテムを、買う前にチェック。働く毎日を、暮らしから整える。</p><span class="more">入口へ</span></div>
+          <div class="body"><div class="no">04</div><h3>買う前にチェック<small>BEFORE YOU BUY</small></h3>
+          <p>美容家電、仕事の小物、ガジェット。買う前に、悪い口コミと合わない人を確かめる。</p><span class="more">棚を開く</span></div>
         </a>
       </div>
+    </div>
+  </section>
+
+  <section id="find" style="padding-top:0">
+    <div class="wrap">
+      <div class="sh-worry rv">
+        <div class="en">BY WORRY</div>
+        <h3>いまの悩みから、探す</h3>
+        <p>「辞めたい」「パワハラかも」「残業代が少ない気がする」。いちばん近い悩みを押すと、読む記事と比較ページが並びます。</p>
+        <div class="chips"><a href="nayami/#yameru">辞めたい・迷っている</a><a href="nayami/#tsurai">職場がつらい</a><a href="nayami/#okane">給料・残業代・条件が不安</a><a href="nayami/#hajimeru">転職を始めたい</a><a href="nayami/#shorui">書類と面接が不安</a></div>
+      </div>
+      <div class="head" style="margin:90px 0 30px">
+        <div class="en rv">NEW</div>
+        <h2 class="split">新しい記事</h2>
+      </div>
+      <div class="rv"><!--NEW:start--><ul class="sh-new"><li><a href="https://note.com/ai_shigoto_erabi/n/nd1853b22af01" target="_blank" rel="noopener"><span class="k">NOTE</span><span class="t"><b>Claude Duetに、商談前の下調べを任せていい？</b><small>3分で出典11件と「未確認8件」が返ってきた。人が見るのは3か所。</small></span></a></li><li><a href="https://note.com/ai_shigoto_erabi/n/nedc6aae255d9" target="_blank" rel="noopener"><span class="k">NOTE</span><span class="t"><b>無料のChatGPTとClaude、同じ指示文で資料を作らせたら？</b><small>足された事実は0と1つ。営業が見る3つの差。</small></span></a></li><li><a href="https://note.com/ai_shigoto_erabi/n/n4e275f223784" target="_blank" rel="noopener"><span class="k">NOTE</span><span class="t"><b>GPT-6.2は営業の仕事で何が変わる？</b><small>AstraとSolの使い分けと、資料づくりで試す手順。指示文3つ。</small></span></a></li><li><a href="https://note.com/ai_shigoto_erabi/n/n6fb7599a8108" target="_blank" rel="noopener"><span class="k">NOTE</span><span class="t"><b>Meta Museに予定調整を任せていい？</b><small>営業が先に決める「つなぐ範囲」と、架空の予定での試し方。指示文3つ。</small></span></a></li><li><a href="https://kaumae-check.hatenablog.jp/entry/2026/11/26/224058" target="_blank" rel="noopener"><span class="k">BLOG</span><span class="t"><b>アイリスオーヤマ 布団乾燥機カラリエの悪い口コミ・デメリット5つ</b><small>布団全体をしっかり温めたい人は後悔しやすい</small></span></a></li><li><a href="https://kaumae-check.hatenablog.jp/entry/2026/11/24/200000" target="_blank" rel="noopener"><span class="k">BLOG</span><span class="t"><b>高いドライヤーを買う前に見る4つ</b><small>高いドライヤーは何が違う？</small></span></a></li></ul><!--NEW:end--></div>
+      <div class="rv"><a class="sh-more" href="kiji/">noteの記事を、全部見る</a><a class="sh-more" href="kurashi/">買う前チェックを、全部見る</a></div>
     </div>
   </section>
 
@@ -330,12 +353,12 @@ footer small{font-family:var(--en);color:rgba(255,255,255,.6);font-size:12px;let
           <div class="pic wipe"><img class="px" src="img/yuki.jpg" alt=""><div class="num">01</div></div>
           <div class="body">
             <div class="glow"></div>
-            <div class="who"><div class="avatar"><img src="yuki.png" alt="Yukiのアイコン"></div><div><a class="role" href="erabu/" style="text-decoration:none">CHOOSE ／ 仕事を選ぶ →</a><div style="display:flex;align-items:center;gap:16px"><h3>Yuki</h3><img class="ndk" src="img/ndk.svg" alt="NDK AI WIZARD（Yukiのロゴ）" width="96" height="56" style="display:block;width:96px;height:auto" loading="lazy"></div></div></div>
+            <div class="who"><div class="avatar"><img src="yuki.png" alt="Yukiのアイコン"></div><div><a class="role" href="tenshoku/" style="text-decoration:none">CHOOSE ／ 転職・職場の悩み →</a><div style="display:flex;align-items:center;gap:16px"><h3>Yuki</h3><img class="ndk" src="img/ndk.svg" alt="NDK AI WIZARD（Yukiのロゴ）" width="96" height="56" style="display:block;width:96px;height:auto" loading="lazy"></div></div></div>
             <div class="theme">AIを使った仕事術と、転職の悩み</div>
             <p>求人票の見方や、働きながら転職を進める仕組みなど、迷ったときに手元に置ける記事を書いています。ガジェット好きで、「買う前チェック帳」ではガジェットの紹介も担当しています。</p>
             <ul class="links">
               <li><a class="mag" href="https://note.com/ai_shigoto_erabi" target="_blank" rel="noopener">note <small>AI時代の仕事選び</small></a></li>
-              <li><a class="mag" href="erabu/note/">記事一覧 <small>テーマ別に26本</small></a></li>
+              <li><a class="mag" href="kiji/">記事一覧 <small>新しい順に<!--COUNT:start-->27<!--COUNT:end-->本</small></a></li>
             </ul>
           </div>
         </article>
@@ -344,7 +367,7 @@ footer small{font-family:var(--en);color:rgba(255,255,255,.6);font-size:12px;let
           <div class="pic wipe"><img class="px" src="img/misaki.jpg" alt=""><div class="num">02</div></div>
           <div class="body">
             <div class="glow"></div>
-            <div class="who"><div class="avatar"><img src="img/misaki_face.jpg" alt="美咲"></div><div><a class="role" href="tsukau/" style="text-decoration:none">USE ／ 仕事で使う →</a><h3>美咲</h3></div></div>
+            <div class="who"><div class="avatar"><img src="img/misaki_face.jpg" alt="美咲"></div><div><a class="role" href="ai/" style="text-decoration:none">USE ／ AIを仕事で使う →</a><h3>美咲</h3></div></div>
             <div class="theme">はじめての人にもやさしい、仕事のAI活用</div>
             <p>新卒2年目。AIを仕事に少しずつ取り入れながら、その記録を書いています。「何から始めればいいの？」という人から、もう少し使いこなしたい人まで向けの内容です。</p>
             <ul class="links">
@@ -359,7 +382,7 @@ footer small{font-family:var(--en);color:rgba(255,255,255,.6);font-size:12px;let
           <div class="pic wipe"><img class="px" src="img/yuzuki.jpg" alt=""><div class="num">03</div></div>
           <div class="body">
             <div class="glow"></div>
-            <div class="who"><div class="avatar"><img src="img/yuzuki_face.jpg" alt="ゆづき"></div><div><a class="role" href="totonoeru/" style="text-decoration:none">LIVE ／ 暮らしを整える →</a><h3>ゆづき</h3></div></div>
+            <div class="who"><div class="avatar"><img src="img/yuzuki_face.jpg" alt="ゆづき"></div><div><a class="role" href="kurashi/" style="text-decoration:none">LIVE ／ 買う前にチェック →</a><h3>ゆづき</h3></div></div>
             <div class="theme">美容と、一人暮らしのアイテム</div>
             <p>スキンケアやメイク、一人暮らしの女性に役立つアイテムのことを発信しています。ブログ「買う前チェック帳」では、買う前に確かめたいポイントをまとめています。</p>
             <ul class="links">
@@ -380,7 +403,7 @@ footer small{font-family:var(--en);color:rgba(255,255,255,.6);font-size:12px;let
         <h2 class="split">このサイトについて</h2>
       </div>
       <div class="notes">
-        <div class="note rv"><h4>発信先のまとめです</h4><p>3人の発信先をまとめたページです。それぞれの記事や投稿は、リンク先でご覧ください。</p></div>
+        <div class="note rv"><h4>発信先のまとめです</h4><p>3人の記事と比較を、目的別の4つの棚にまとめたサイトです。noteやブログの記事は、リンク先でご覧ください。</p></div>
         <div class="note rv d1"><h4>広告の表示について</h4><p>記事や投稿に商品やサービスのリンクがある場合は、そのページで広告（PR）であることを表示しています。くわしくは<a href="about/" style="color:#f3b36f">運営情報・広告の表示について</a>をご覧ください。</p></div>
       </div>
       <p class="fine rv">※美咲・ゆづきの見た目はAIで作成しています。</p>
