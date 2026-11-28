@@ -89,7 +89,7 @@
 
 <section id="s4"><div class="wrap">
   <div class="head rv"><div class="en">PROMPT</div><h2 class="split">求人票の読み取りを、AIに手伝ってもらう</h2><p>気になる求人の「仕事内容」をそのまま貼って、下の文を添えます。会社名は消してから貼ると安心です。</p></div>
-  <div class="prompt rv">次の求人の「仕事内容」を読んで、書かれている作業を1つずつ書き出してください。
+  <div class="prompt rv"><button type="button" class="copybtn">コピーする</button>次の求人の「仕事内容」を読んで、書かれている作業を1つずつ書き出してください。
 それぞれを、次の4つのどれに近いか分けてください。
 A：決まった手順の作業　B：文章や資料の下書き　C：判断して責任を持つ作業　D：人と向き合う作業
 最後に、AとBが中心か、CとDが中心かを一言で書いてください。
@@ -117,5 +117,6 @@ A：決まった手順の作業　B：文章や資料の下書き　C：判断�
     <small><a href="../../about/">運営情報・広告の表示について</a><br>運営：AI時代の働き方 編集部<br>当サイトはAmazonアソシエイト・プログラムの参加者です。<br>© 2026 WORK STYLE IN THE AGE OF AI</small>
   </div>
 </footer>
+<script>document.querySelectorAll(".copybtn").forEach(function(b){b.addEventListener("click",function(){var t=b.parentNode.cloneNode(true);t.querySelector(".copybtn").remove();var s=t.textContent.trim();var done=function(){b.textContent="コピーしました";b.classList.add("ok");setTimeout(function(){b.textContent="コピーする";b.classList.remove("ok")},1800)};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(s).then(done,function(){})}else{var a=document.createElement("textarea");a.value=s;document.body.appendChild(a);a.select();try{document.execCommand("copy");done()}catch(e){}a.remove()}})})</script>
 </body>
 </html>
